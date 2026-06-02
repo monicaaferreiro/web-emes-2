@@ -1,0 +1,151 @@
+:root {
+    --clr-corporativo-purple: hsl(328, 73%, 23%);
+    --clr-corporativo-blue: hsl(212, 50%, 65%);
+    --clr-corporativo-yellow: hsl(55, 88%, 84%);
+    --clr-corporativo-orange: hsl(26, 91%, 79%);
+    --clr-black: hsl(0, 0%, 0%);
+    --title-font-playfair: 'Playfair Display', serif;
+    --title-font-excon: 'Excon', sans-serif;
+    --text-font-inter: 'Inter', sans-serif;
+    --text-size-text: clamp(1.125rem, 0.863rem + 1.066vw, 1.1625rem);
+    --text-size-title-excon: clamp(1.125rem, 0.374rem + 3.056vw, 3.125rem);
+    --text-size-title-playfairdisplay: clamp(1.5rem, 0.163rem + 5.443vw, 5.0625rem);
+    --padding-movil: 5vw;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--text-font-inter);
+    background-color: white; /* Necesario para que el contenido tape la foto */
+}
+
+/* --- EFECTO FOTO FIXED --- */
+.hero-fixed {
+    height: 80vh; /* Altura de la "ventana" inicial */
+    width: 100%;
+    position: relative;
+    overflow: visible; /* Dejar que la imagen salga del flujo visual */
+}
+
+.hero-fixed__wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.img__principal-fixed {
+    position: fixed; /* LA CLAVE: se queda clavada en la pantalla */
+    top: 0;
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    z-index: -1; /* Se queda al fondo */
+}
+
+/* --- CONTENIDO QUE SUBE --- */
+.main-content {
+    position: relative;
+    z-index: 10; /* Mayor que el fixed de la imagen */
+    background-color: white; /* Importante: el fondo blanco tapa la imagen fija */
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+/* --- FICHA TÉCNICA --- */
+.info_card {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info_card__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 8px;
+}
+
+.info_card__item p:first-child { text-align: left; }
+.info_card__item p:last-child { text-align: right; font-weight: bold; }
+.info_card__text { margin-top: 10px; line-height: 1.5; }
+
+/* --- GALERÍA (MOBILE FIRST) --- */
+.galeria-grid { width: 100%; padding: 0 var(--padding-movil); }
+
+.contenedor_rectangle {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.img__contenedor {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna en móvil */
+    gap: 20px;
+}
+
+.contenedor_square {
+    width: 100%;
+    aspect-ratio: 1 / 1.3;
+    overflow: hidden;
+}
+
+.contenedor_rectangle img, .contenedor_square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- ANIMACIONES SCROLL --- */
+.reveal-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+.reveal-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- CTA --- */
+.cta_contacto { display: flex; flex-direction: column; width: 90%; max-width: 400px; margin: 80px auto; gap: 20px; }
+.btn { 
+    display: inline-block; align-self: center; text-decoration: none; 
+    padding: 15px 40px; border-radius: 42px; background: var(--clr-corporativo-purple); 
+    color: var(--clr-corporativo-yellow); font-weight: 600; border: 2px solid transparent; transition: 0.3s;
+}
+.btn:hover { background: var(--clr-corporativo-yellow); color: var(--clr-corporativo-purple); border-color: var(--clr-corporativo-purple); }
+
+.proyectos__titulo1 { font-family: var(--title-font-excon); font-size: var(--text-size-title-excon); }
+.proyectos__titulo2 { font-family: var(--title-font-playfair); font-size: var(--text-size-title-playfairdisplay); font-style: italic; }
+.proyectos__header { display: flex; flex-direction: column; }
+.proyectos__header_1 { text-align: left; }
+.proyectos__header_2 { text-align: center; }
+.proyectos__header_3 { text-align: right; }
+
+/* --- DESKTOP ADAPTACIÓN (768px+) --- */
+@media (min-width: 768px) {
+    /* La portada ocupa 2/3 de ancho en desktop */
+    .hero-fixed__wrapper { width: 66.6vw; margin: 0 auto; }
+    .img__principal-fixed { width: 66.6vw; left: 16.7vw; } /* Centrado: (100-66.6)/2 = 16.7 */
+
+    .info_card { max-width: 500px; }
+
+    /* Galería Desktop */
+    .img__contenedor {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas cuadradas */
+    }
+
+    .contenedor_rectangle {
+        max-width: 1024px;
+        margin: 0 auto 40px;
+    }
+}

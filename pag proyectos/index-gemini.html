@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emes Agencia Creativa - Página proyectos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=excon@1,2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo-pagina-proyectos.css">
+</head>
+
+<body>
+
+    <section class="hero-fixed-container">
+        <picture>
+            <source media="(max-width: 450px)" srcset="assets/img-home-projects-cafe.jpg">
+            <source media="(max-width: 768px)" srcset="assets/img-home-projects-cafe-desktop.png">
+            <img src="assets/img-home-projects-cafe-desktop.png" alt="Descripción del proyecto café"
+                class="img-parallax">
+        </picture>
+    </section>
+
+    <main class="wrapper-contenido">
+
+        <div class="info_card">
+            <div class="info_card__item">
+                <p>Marca</p>
+                <p>Bulle</p>
+            </div>
+            <div class="info_card__item">
+                <p>Proyecto</p>
+                <p>Rebranding | Social Media</p>
+            </div>
+            <div class="info_card__item">
+                <p>Año</p>
+                <p>2026</p>
+            </div>
+            <p class="descripcion-proyecto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <section class="galeria-plantilla">
+            <div class="contenedor-imagen-full reveal-scroll">
+                <img src="assets/img-project-cafe-4.jpg" alt="Imagen proyecto principal">
+            </div>
+
+            <div class="grid-imagenes-secundarias">
+                <div class="contenedor-imagen-square reveal-scroll"><img src="assets/img-project-cafe-1.jpg" alt="">
+                </div>
+                <div class="contenedor-imagen-square reveal-scroll"><img src="assets/img-project-cafe-2.jpg" alt="">
+                </div>
+                <div class="contenedor-imagen-square reveal-scroll"><img src="assets/img-project-cafe-3.jpg" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section class="cta_contacto">
+            <div class="proyectos__header">
+                <h2 class="proyectos__titulo1 proyectos__header_1">Tu proyecto tiene una</h2>
+                <h2 class="proyectos__titulo2 proyectos__header_2">historia.</h2>
+                <h2 class="proyectos__titulo1 proyectos__header_3">Queremos ayudarte a contarla.</h2>
+            </div>
+            <a href="contacto/index.html" class="btn">¿Damos el siguiente paso?</a>
+        </section>
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
