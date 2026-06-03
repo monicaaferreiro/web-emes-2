@@ -59,7 +59,8 @@
 .servicios__lista {
     display: flex;
     flex-direction: column;
-    gap: 0 clamp(30px, 6vh, 60px);
+    gap: clamp(30px, 6vh, 60px);
+    padding: clamp(30px, 6vh, 60px) 0 0;
 }
 
 /* .servicio-detalle {
@@ -190,8 +191,7 @@
     width: clamp(300px, 80%, 600px);
     margin: 0 auto;
     text-align: center;
-    /* he probado a meterle la var de padding-secciones pero veo muy poco espacio */
-    padding: clamp(100px, 8vh, 200px) 0;
+    padding: clamp(100px, 8vh, 200px) 0 clamp(125px, 10vh, 250px);
     gap: var(--gap-secciones);
 
 }
@@ -216,8 +216,7 @@
     .servicios__lista {
         gap: clamp(50px, 8vh, 100px);
         align-items: stretch;
-        padding: clamp(60px, 8vw, 120px);
-        padding-bottom: 0;
+        padding: clamp(60px, 8vw, 120px) 0 0;
     }
 
     .servicio-detalle {
@@ -304,6 +303,10 @@
 
     .servicio-detalle--derecha .servicio-detalle__descripcion {
         text-align: right;
+        }
+
+    .cta_contacto {
+            padding: clamp(200px, 9vh, 250px) 0 clamp(225px, 11vh, 275px);
         }
     
 }
