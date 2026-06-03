@@ -7,7 +7,7 @@
     --clr-corporativo-orange: hsl(26, 91%, 79%);
     --clr-black: hsl(0, 0%, 0%);
 
-    --bg-color-contacto: #f0c9a4;
+    
     /* El color de fondo de tus fotos */
     --text-color-contacto: #333333;
     /* Color de texto oscuro para los labels */
@@ -32,7 +32,7 @@
 }
 
 body {
-    background-color: var(--bg-color-contacto);
+    background-color: var(--clr-corporativo-orange);
     font-family: var(--text-font-inter);
     color: var(--clr-black);
     overflow-x: hidden;

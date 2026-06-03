@@ -150,8 +150,41 @@
 </header>
 
 <main>
+    <!-- <div class="contenedor-fondo-fijo">
+        <svg id="svg-fondo-fijo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
+            <defs>
+                <style>
+                    /* Clases exclusivas que no pisarán a tus otros elementos */
+                    .trazo-fijo-servicios {
+                        fill: none !important;
+                        stroke: #fac49a !important;
+                        /* Tu color crema */
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 46px;
+                    }
+    
+                    .pelota-fija-servicios {
+                        fill: #66103e !important;
+                        /* Tu morado */
+                        stroke: #66103e !important;
+                        stroke-miterlimit: 10;
+                        stroke-width: 1px;
+                    }
+                </style>
+            </defs>
+            <g id="grupo-path">
+                <path id="camino-pelota-fijo" class="trazo-fijo-servicios"
+                    d="M-.91,80.8s85.36,99,158.77,97.32,262.93-46.1,394.39-29S802.93,269.74,917.61,263.48c187.8-10.24,264.13-96.89,346.57-56.34,104.15,51.22-16,125.3,0,239,17.08,121.22-8.53,198.05-73.41,196.34C982.68,637,996.14,497.38,863,459.82c-154.08-43.46-326.53-55.2-450.72-1.71-111,47.81-108.37,82.52-194.63,143.41-58.05,41-162.19,15.37-179.27,105.86C26.72,769.06,129.82,832.62,226.16,803c111-34.14,261.21-155.36,409.74-131.46s192.93,111,315.85,109.27,111-99,215.12-25.61,128.05,83.66,206.58,78.53,58-8.53,58-8.53" />
+            </g>
+            <g id="grupo-pelota">
+                <circle id="pelota-scroll-fija" class="pelota-fija-servicios" cx="72.74" cy="65.71" r="20.26" />
+            </g>
+        </svg>
+    </div> -->
+    
     <section class="pagina-servicios">
-        <div class="servicios__titulo-pagina">
+        <div class="titulo-pagina">
             <h2 class="titulo1-excon">Esto es lo que hacemos en</h2>
             <div class="titulo-logo-emes">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265.86 65.79" aria-label="emes">
@@ -1182,6 +1215,57 @@
 
             servicios.forEach(s => observer.observe(s));
         }, 0);
+
+
+    //animacion svg
+    document.addEventListener("DOMContentLoaded", () => {
+            const trazado = document.getElementById('camino-pelota-fijo');
+            const pelota = document.getElementById('pelota-scroll-fija');
+
+            if (!trazado || !pelota) return;
+
+            // Medimos la longitud total de tu trazo original 1440x900
+            const longitudTrazado = trazado.getTotalLength();
+
+            // Desfase para que ruede sobre la superficie: radio pelota (20.26) + mitad del grosor del trazo (23)
+            const radioPelota = 20.26;
+            const mitadGrosorLinea = 23;
+            const desfaseSuperficie = radioPelota + mitadGrosorLinea;
+
+            const actualizarPosicionPelota = () => {
+                // Altura total scrollable de la página menos la altura de la ventana
+                const totalScrollMaximo = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollActual = window.scrollY;
+
+                // Si la página no tiene scroll suficiente, evitamos división por cero
+                if (totalScrollMaximo <= 0) return;
+
+                // Porcentaje de scroll (rango exacto de 0 a 1)
+                let progresoGlobal = scrollActual / totalScrollMaximo;
+                progresoGlobal = Math.max(0, Math.min(1, progresoGlobal));
+
+                // Calculamos la distancia en base al progreso de la página
+                const distanciaCamino = progresoGlobal * longitudTrazado;
+
+                // Obtenemos coordenadas exactas dentro de la escala fija del SVG
+                const coordenadas = trazado.getPointAtLength(distanciaCamino);
+
+                // Ubicamos la pelota en el eje X y en la superficie del eje Y
+                pelota.setAttribute('cx', coordenadas.x);
+                pelota.setAttribute('cy', coordenadas.y - desfaseSuperficie);
+            };
+
+            // Escuchamos el evento de scroll
+            window.addEventListener('scroll', actualizarPosicionPelota);
+
+            // Escuchamos el resize por si cambia el tamaño de la pantalla
+            window.addEventListener('resize', actualizarPosicionPelota);
+
+            // Inicializamos la posición en la carga inicial
+            actualizarPosicionPelota();
+        });
+
+    
 </script>
 </body>
 </html>

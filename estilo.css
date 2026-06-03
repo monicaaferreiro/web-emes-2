@@ -87,6 +87,12 @@
     display: none;
 }
 
+.titulo-pagina {
+    text-align: center;
+    padding: clamp(120px, 7vh, 180px) 0 clamp(10px, 3vh, 40px) 0;
+    margin: 0;
+}
+
 
 body {
     font-family: var(--text-font-inter);
@@ -547,6 +553,10 @@ overflow:hidden recorta lo que se sale del slider */
     display: block;
 }
 
+.tablet-only {
+    display: none;
+}
+
 .svg-animation-section {
     /* reducimos el scroll total */
     height: 150vh;
@@ -593,12 +603,54 @@ overflow:hidden recorta lo que se sale del slider */
     /* Suaviza el dibujo al hacer scroll */
 }
 
+/* media query para tablets */
+@media (min-width: 769px) and (max-width: 976px) {
+    .mobile-only {
+        display: none;
+    }
+
+    /* Ocultamos el de escritorio para que no se solape ni se deforme */
+    .desktop-only {
+        display: none;
+    }
+
+    /* Mostramos el nuevo contenedor de tablet */
+    .tablet-only {
+        display: block;
+    }
+
+    /* Forzamos a que el SVG en tablets respire y no se desborde horizontal ni verticalmente */
+    #logo-animado-tablet {
+        width: 100%;
+        height: auto;
+        max-height: 75vh;
+        /* Evita que en tablets bajitas el SVG sea más alto que la pantalla */
+        margin: 0 auto;
+    }
+
+    /* Opcional: Si quieres ajustar el grosor de las líneas en tablet puedes hacerlo aquí */
+    .tablet-only .st3,
+    .tablet-only .st4,
+    .tablet-only .st5,
+    .tablet-only .st6 {
+        stroke-width: 18px;
+        /* Un grosor intermedio entre móvil y desktop si lo requiere */
+    }
+}
+
+
+
+/* media query para movil */
 @media (max-width: 768px) {
     .mobile-only {
         display: block;
     }
 
     .desktop-only {
+        display: none;
+    }
+
+    .tablet-only {
         display: none;
     }
 
@@ -617,6 +669,8 @@ overflow:hidden recorta lo que se sale del slider */
             /* Aquí controlas el grosor de tu nuevo diseño móvil */
         }
 }
+
+
 
 /* capa texto+botón */
 .contact__header {
@@ -763,6 +817,11 @@ overflow:hidden recorta lo que se sale del slider */
     .footer-mobile {
         display: none;
     }
+
+.titulo-pagina {
+    padding: clamp(170px, 9vh, 200px) 0 clamp(10px, 3vh, 40px) 0;
+        
+}
 
     .header__menu_list {
         display: flex;

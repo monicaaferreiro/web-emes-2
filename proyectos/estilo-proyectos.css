@@ -17,12 +17,6 @@ h2 span {
     font-family: var(--title-font-playfair);
 }
 
-.h2__header {
-    grid-column: 1 / span 2;
-    text-align: center;
-    padding: clamp(80px, 7vh, 180px) 0 clamp(10px, 3vh, 40px) 0;
-    margin: 0;
-}
 
 /* --- SECCIÓN PRINCIPAL Y CUADRÍCULA --- */
 .projects-section {

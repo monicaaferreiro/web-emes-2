@@ -1,4 +1,49 @@
 
+/* Contenedor anclado a la pantalla */
+.contenedor-fondo-fijo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* Queda por DETRÁS de todos tus servicios */
+    pointer-events: none;
+    /* Permite hacer click y scroll sobre los textos libremente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: transparent;
+    /* Permite que se vea si tienes fondos definidos */
+}
+
+/* El SVG mantiene su proporción y se adapta al contenedor sin deformarse */
+#svg-fondo-fijo {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Asegura que mantenga la relación de aspecto 1440x900 */
+}
+
+/* IMPORTANTE: Tus bloques de servicios existentes deben tener fondo transparente */
+.pagina-servicios,
+.servicios__lista,
+.servicio-detalle {
+    background-color: transparent !important;
+    position: relative;
+    z-index: 1;
+    /* Forzamos a que queden por encima del fondo fijo */
+}
+
+/* Suavizado milimétrico para el desplazamiento de la pelota */
+#pelota-scroll-fija {
+    transition: cx 0.05s ease-out, cy 0.05s ease-out;
+}
+
+
 .pagina-servicios {
     display: flex;
     flex-direction: column;
@@ -167,10 +212,6 @@
     .pagina-servicios {
         padding: 0 clamp(20px, 4vw, 60px);
     }
-
-    .servicios__titulo-pagina {
-        padding: clamp(100px, 6vh, 170px) 0 clamp(10px, 3vh, 40px) 0;
-        }
 
     .servicios__lista {
         gap: clamp(50px, 8vh, 100px);

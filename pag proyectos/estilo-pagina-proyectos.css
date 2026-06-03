@@ -131,6 +131,22 @@ picture img {
     border-radius: 20px;
 }
 
+/* slider floristeria */
+.proyectos__flecha-flores {
+    display: none;
+}
+
+.proyectos__slider-wrapper-flores {
+    position: relative !important;
+    /* El !important asegura que nadie pise esta regla */
+    width: 100%;
+    overflow: hidden;
+    /* Oculta las fotos clonadas que se salen por los lados */
+    padding: 40px 0;
+    /* Margen para que respiren las imágenes */
+}
+
+
 /* para que el texto no se rompa al reducir la pantalla */
 @media (max-width: 300px) {
     .proyectos__frase {
@@ -152,6 +168,53 @@ picture img {
     .info_card__item {
         gap: 50px;
     }
+
+
+
+.proyectos__flecha-flores {
+    position: absolute;
+    top: 50%;
+    /* Se centran verticalmente respecto al wrapper */
+    transform: translateY(-50%);
+    /* Centrado perfecto */
+    z-index: 100;
+    /* Flotan por encima de las imágenes */
+    background-color: #66103e;
+    /* Tu color morado */
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* 3. LAS FLECHAS ABSOLUTAS RESPECTO AL WRAPPER */
+.proyectos__flecha {
+    position: absolute;
+    top: 50%;
+    /* Se centran verticalmente respecto al wrapper */
+    transform: translateY(-50%);
+    /* Centrado perfecto */
+    z-index: 100;
+    /* Flotan por encima de las imágenes */
+    background-color: #66103e;
+    /* Tu color morado */
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
 
     

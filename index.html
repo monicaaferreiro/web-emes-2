@@ -152,7 +152,7 @@
     <section class="hero">
     <img src="assets/img-home-mobile.png" alt="Emes Agencia Creativa" class="hero__img hero__img--mobile">
     <img src="assets/img-home-desktop.jpg" alt="Emes Agencia Creativa" class="hero__img hero__img--desktop">
-</section>
+    </section>
 
 <div class="contenido-pag">
 <section class="seccion-servicios">
@@ -1112,6 +1112,45 @@
     	s-47.01,226.71-233.79,184.11c-118.59-27.04-67.15,214.27-173.88,165.12c-133.52-61.49-168.89,1.49-150.47,65.79" />
     </svg>
 
+        <!-- svg tablet -->
+        <svg version="1.1" id="logo-animado-tablet" class="tablet-only" viewBox="45 0 800 900">
+            <style>
+                #logo-animado-tablet .st3 {
+                    stroke: #F9F3B0;
+                    stroke-width: 46;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+        
+                #logo-animado-tablet .st5 {
+                    stroke: #78A2D2;
+                    stroke-width: 46;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+        
+                #logo-animado-tablet .st6 {
+                    stroke: #FAC49A;
+                    stroke-width: 46;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+            </style>
+            <path id="path-yellow-d" class="st3"
+                d="M19.97,154.53c0,0,65.22,106.41,160.73,103.75c212.72-5.94,229.41-14.61,258.63,121.28
+            	C475.68,548.58,304.9,528.6,274.22,630.89C243.1,734.6,536.99,858.21,659.98,603.12c118.36-245.48,156.45,87.22,344.85,102.28 c105.69,8.45,302.19-175.69,159.27-314.16c-140.76-136.38-127.03-374.57,64.29-337.54c135.89,26.3-33.61,130.75-1.46,204.57 c39.45,90.6,133.34,24.62,156.35,102.28c23.38,78.91-18.55,189.97,29.22,194.34" />
+            <!-- <path id="path-purple-d" class="st4" d="M195.31,25.48c0,0-42.38,184.58,276.15,146.59c168.89-20.14-38.04,173.57,67.23,289.32
+            	c75.42,82.92,240.91-110.91,374.07,56.99c201.65,254.25,254.05-92.77,397.45,33.61c172.42,151.97-133.88,276.17,111.61,333.16"/> -->
+            <path id="path-blue-d" class="st5"
+                d="M829.48,25.48c0,0,118.36,307.32-86.21,302.93c-187-4.01,20.79-214.07-217.72-225.03
+            	c-286.4-13.15-109.14,222.76-366.76,318.54C38.84,466.52-21.48,702.68,94.57,705.4c129.36,3.03,0-175.5,181.11-154.88
+            	c145.26,16.54-84.96,456.53,198.72,267.4c162.19-108.13,17.88,117.38,245.6,19.1c87.63-37.82-42.95-124.82,5.46-186.09
+            	c47.1-59.61,134.53,54.93,210.3,151.29c73.53,93.52,125.52-13.99,168.43-35.45c96.44-48.22,125.63,75.01,144.66,103.75" />
+            <path id="path-orange-d" class="st6" d="M1421.82,31.79c0,0-59-4.38-117.45,97.9c-84.01,147.02-138.49-85.65-253.48-30.84
+            	c-187.44,89.35,45.68,286.19-49.39,337.15c-109.88,58.89-131.1-224.49-252.38-221.56C578.1,218.56,591.3,359.1,608.84,462.85
+            	s-47.01,226.71-233.79,184.11c-118.59-27.04-67.15,214.27-173.88,165.12c-133.52-61.49-168.89,1.49-150.47,65.79" />
+        </svg>
+
         <!-- svg movil -->
     <svg id="logo-animado-mobile" class="svg-animado mobile-only" viewBox="45 0 300 700" xmlns="http://www.w3.org/2000/svg">
         <path id="path-yellow-m" class="st3"
@@ -1131,6 +1170,9 @@
             d="M96.18-4.83c7.59,2.81,55.89,21.55,71.54,70.31,9.12,28.44,6.21,44.25,3.19,53.92-14,44.81-49.24,59.56-89.54,106.4C63.73,246.31,41,277.61,36,328.37c-1.19,11.85-7.21,85.43,47.76,135.46,33.67,30.64,61.65,51.84,105.13,43.92C248.4,496.91,261.46,446.36,301,450.8c35.88,4,54.27,30.05,62.34,64.58,11.47,49.06-1.11,99.55-34.5,130.89-3.5,3.28-58,41.94-108,17.22-7.15-3.53-40.68-21.44-44.63-58.72-2.67-25.15,8.7-53.7,32.1-66.55,31.31-17.21,70.14,1.38,88.48,21.14,30.72,33.11,29.19,96.82-11,151.9"
             style="fill:none; stroke:#fac49a; stroke-linecap:round; stroke-linejoin:round;" />
     </svg>
+
+   
+
 
     <!-- capa con texto+botón que aparece al finalizar la animación -->
      <div id="contact-content" class="contact-overlay">
@@ -1448,68 +1490,66 @@
 
     //SECCIÓN PATH
    
-        document.addEventListener("DOMContentLoaded", () => {
-                let activePaths = [];
-                let lengths = [];
-                const section = document.querySelector('.svg-animation-section');
+       document.addEventListener("DOMContentLoaded", () => {
+            const section = document.querySelector('.svg-animation-section');
 
-                const setupAnimation = () => {
-                    const isMobile = window.innerWidth < 768;
-                    const currentSvgId = isMobile ? 'logo-animado-mobile' : 'logo-animado-desktop';
-                    const svg = document.getElementById(currentSvgId);
+            const width = window.innerWidth;
+            const isMobile = width <= 768;
+            const isTablet = width >= 769 && width <= 976; // Tu rango de tablet
 
-                    if (!svg) return;
+            // Seleccionamos el SVG correspondiente usando tus IDs reales
+            let activeSvg;
+            if (isMobile) {
+                activeSvg = document.getElementById('logo-animado-mobile');
+            } else if (isTablet) {
+                activeSvg = document.getElementById('logo-animado-tablet');
+            } else {
+                activeSvg = document.getElementById('logo-animado-desktop');
+            }
 
-                    // Seleccionamos los paths por clase dentro del SVG que toque
-                    activePaths = [
-                        svg.querySelector('.st3'),
-                        svg.querySelector('.st4'),
-                        svg.querySelector('.st5'),
-                        svg.querySelector('.st6')
-                    ].filter(p => p !== null); // Evita errores si falta alguno
+            if (!activeSvg) return;
 
-                    lengths = activePaths.map(path => {
-                        const length = path.getTotalLength();
-                        path.style.strokeDasharray = length;
-                        path.style.strokeDashoffset = length;
-                        return length;
-                    });
-                };
+            // Tu lógica original de lectura de paths
+            const activePaths = activeSvg.querySelectorAll('.st3, .st4, .st5, .st6');
 
-                setupAnimation();
-                window.addEventListener('resize', setupAnimation);
+            const lengths = Array.from(activePaths).map(path => {
+                const length = path.getTotalLength();
+                path.style.strokeDasharray = length;
+                path.style.strokeDashoffset = length;
+                return length;
+            });
 
-                window.addEventListener('scroll', () => {
-                    const sectionRect = section.getBoundingClientRect();
-                    const viewportHeight = window.innerHeight;
-                    const scrollHeight = section.offsetHeight - viewportHeight;
+            window.addEventListener('scroll', () => {
+                const sectionRect = section.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                const scrollHeight = section.offsetHeight - viewportHeight;
 
-                    const isMobile = window.innerWidth < 768;
-                    const earlyStart = isMobile ? viewportHeight * 0.3 : viewportHeight * 0.5; // ← diferente por dispositivo
+                // Mantenemos tu cálculo original, sumando el caso intermedio de la tablet
+                const earlyStart = isMobile
+                    ? viewportHeight * 0.3
+                    : (isTablet ? viewportHeight * 0.4 : viewportHeight * 0.5);
 
-                    let progress = (earlyStart - sectionRect.top) / scrollHeight;
-                    progress = Math.max(0, Math.min(1, progress));
+                let progress = (earlyStart - sectionRect.top) / scrollHeight;
+                progress = Math.max(0, Math.min(1, progress));
 
-                    activePaths.forEach((path, index) => {
-                        const start = index / activePaths.length;
-                        const end = (index + 1) / activePaths.length;
-                        let pathProgress = Math.max(0, Math.min(1, (progress - start) / (end - start)));
+                activePaths.forEach((path, index) => {
+                    const start = index / activePaths.length;
+                    const end = (index + 1) / activePaths.length;
+                    let pathProgress = Math.max(0, Math.min(1, (progress - start) / (end - start)));
 
-                        path.style.strokeDashoffset = lengths[index] * (1 - pathProgress);
-                    });
+                    path.style.strokeDashoffset = lengths[index] * (1 - pathProgress);
+                });
 
-                    // Control de la capa texto+boton
-                    const contactContent = document.getElementById('contact-content');
-
-                    // Si el progreso es mayor a 0.95 (casi al final), mostramos el texto
+                const contactContent = document.getElementById('contact-content');
+                if (contactContent) {
                     if (progress > 0.90) {
                         contactContent.classList.add('is-visible');
                     } else {
-                        // Si el usuario vuelve a subir, lo ocultamos de nuevo
                         contactContent.classList.remove('is-visible');
                     }
-                });
+                }
             });
+        });
 </script>
 </body>
 
